@@ -1,11 +1,8 @@
 ARCHS = arm64 
 TARGET = iphone:clang:9.0:7.4
+DEBUG = 0
 #CFLAGS = -fobjc-arc
 #THEOS_PACKAGE_DIR_NAME = debs
-
-#import <UIKit/UIKit.h>
-#import <Cephei/Cephei.framework>
-#import <CepheiPrefs/CepheiPrefs.framework>
 
 include theos/makefiles/common.mk
 
