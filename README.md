@@ -13,3 +13,5 @@ Hosted on BigBoss (older version) and current version, full depiction, change lo
 http://i0s-tweak3r-betas.yourepo.com/pack/stylish11
 
 To install updated version add source: http://i0s-tweak3r-betas.yourepo.com
+
+Note: I've learned a lot since first making this and still could optimize the code and fix a few things. Mainly added this to clone to my iOS 11 device and start working on it from there.
