@@ -1,5 +1,5 @@
 ARCHS = arm64
-TARGET = iphone:clang;9.0:7.4
+TARGET = iphone:clang;11.2:7.4
 include theos/makefiles/common.mk
 
 #import <Cephei/Cephei>
