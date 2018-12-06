@@ -580,22 +580,6 @@ return %orig; }
 }
 %end
 
-
-/*  
-Use this to set primary color 
-%hook SBIconView
--(id) _legibilitySettingsWithStyle:(long long)arg1 primaryColor:(id)arg2 {
-if(kBlackText) { 
-arg2=  [UIColor colorWithRed:(226/255.0) green:(215/255.0) blue:(36/255.0) alpha:1.0];
-
-return %orig(arg1,arg2);
-}
-return %orig;
-}
-%end
-*/
-
-
 %hook SBIconController
 -(bool) iconViewDisplaysBadges:(id)arg1 {
 if(kHideBadges) {
