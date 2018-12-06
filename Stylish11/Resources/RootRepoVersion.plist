@@ -19,7 +19,7 @@
 			<key>icon</key>
 			<string>icon@3x.png</string>
 			<key>packageIdentifier</key>
-			<string>com.i0stweak3r.stylish11</string>
+			<string>com.yourepo.i0s-tweak3r-betas.stylish11</string>
 			<key>subtitleColor</key>
 			<string>#00ABF6</string>
 			<key>titleColor</key>
@@ -130,10 +130,10 @@
 		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Note: while some options change without respring some need a respring to fully take affect, or revert to stock.</string>
 			<key>label</key>
-	<string>Dock and Folder Coloring</string>
-<key>footerText</key>
-<string>Note: while some options change without respring some need a respring to fully take affect, or revert to stock.</string>
+			<string>Dock and Folder Coloring</string>
 		</dict>
 		<dict>
 			<key>PostNotification</key>
@@ -161,7 +161,7 @@
 			<key>key</key>
 			<string>folderColorEnabled</string>
 			<key>label</key>
-	<string>Enable colored folders</string>
+			<string>Enable colored folders</string>
 		</dict>
 		<dict>
 			<key>PostNotification</key>
@@ -175,9 +175,8 @@
 			<key>key</key>
 			<string>openFolderColorEnabled</string>
 			<key>label</key>
-		<string>Color open folders</string>
+			<string>Color open folders</string>
 		</dict>
-
 		<dict>
 			<key>PostNotification</key>
 			<string>com.i0stweak3r.stylish11/settingschanged</string>
@@ -188,7 +187,7 @@
 			<key>cellClass</key>
 			<string>CSColorDisplayCell</string>
 			<key>defaults</key>
-	<string>com.i0stweak3r.stylish11</string>
+			<string>com.i0stweak3r.stylish11</string>
 			<key>defaultsPath</key>
 			<string>/Library/PreferenceBundles/Stylish11.bundle</string>
 			<key>fallback</key>
@@ -196,7 +195,7 @@
 			<key>key</key>
 			<string>dockColorHex</string>
 			<key>label</key>
-	<string>Dock and Folder color:</string>
+			<string>Dock and Folder color:</string>
 		</dict>
 		<dict>
 			<key>cell</key>
