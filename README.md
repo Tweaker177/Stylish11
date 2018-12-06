@@ -1,6 +1,5 @@
 # Stylish11 
-by 
-# i0s_tweak3r 
+by i0s_tweak3r 
 
 A colorfully random way to customize the look and feel of your device, and add extra functionality. Color pickers and other new options added for iOS 11-11.4 Suite has around 30 options, and can modify most elements of UI either randomly or with custom settings and colorpickers. 
 
