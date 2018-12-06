@@ -13,7 +13,7 @@
 static double dockpercent = 0.f;
 static double dockheightfrac = dockpercent/100;
 
-//these rands were not static b4
+//random r-g-b values
 
 double r1 = arc4random_uniform(255);
 double g1 = arc4random_uniform(255);
