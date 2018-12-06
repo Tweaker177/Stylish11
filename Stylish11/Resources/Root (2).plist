@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>backgroundGradientColors</key>
+			<array>
+				<string>#023F6F</string>
+				<string>#024E89</string>
+				<string>#21669C</string>
+				<string>#2B87CF</string>
+			</array>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>headerCellClass</key>
+			<string>HBPackageNameHeaderCell</string>
+			<key>icon</key>
+			<string>icon@3x.png</string>
+			<key>packageIdentifier</key>
+			<string>com.i0stweak3r.stylish11</string>
+			<key>subtitleColor</key>
+			<string>#a1c8fe</string>
+			<key>titleColor</key>
+			<string>#006BFE</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Customize dock height and opacity, app icons and labels, add colorful highlights, randomize text colors all over, change Control Center appearance and more. Stylish can make your device look different every time you use it. Now iOS 11 compatible!</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Enables the use of the sliders in this tweak. Turning off will return each slider to the default / stock iOS setting.</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>com.i0stweak3r.stylish11/settingsdiff</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.i0stweak3r.stylish11</string>
+			<key>key</key>
+			<string>SlidersEnabled</string>
+			<key>label</key>
+			<string>Enable sliders</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Adjusts the height of dock and apps inside.  Positive values lower dock, negative's make it bigger.  Default is zero. 80= hidden dock.</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>com.i0stweak3r.stylish11/settingsnew</string>
+			<key>cell</key>
+			<string>PSSliderCell</string>
+			<key>cellClass</key>
+			<string>HBDiscreteSliderTableCell</string>
+			<key>default</key>
+			<integer>0</integer>
+			<key>defaults</key>
+			<string>com.i0stweak3r.stylish11</string>
+			<key>key</key>
+			<string>dockpercent</string>
+			<key>label</key>
+			<string>dockpercent</string>
+			<key>max</key>
+			<integer>80</integer>
+			<key>min</key>
+			<integer>-50</integer>
+			<key>showValue</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Adjusts the dock's visibility, the higher the value the less you can see the wallpaper behind it.</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>com.i0stweak3r.stylish11/settingsdiff</string>
+			<key>cell</key>
+			<string>PSSliderCell</string>
+			<key>cellClass</key>
+			<string>HBDiscreteSliderTableCell</string>
+			<key>default</key>
+			<integer>80</integer>
+			<key>defaults</key>
+			<string>com.i0stweak3r.stylish11</string>
+			<key>key</key>
+			<string>Opacityval</string>
+			<key>label</key>
+			<string>Dock opacity.</string>
+			<key>max</key>
+			<real>100</real>
+			<key>min</key>
+			<real>0.0</real>
+			<key>showValue</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Disables the ability to take screenshots, useful if you take them by accident sometimes, or want to assign tthe screenshot gesture to do something else in Activator.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.i0stweak3r.stylish11</string>
+			<key>key</key>
+			<string>key23</string>
+			<key>label</key>
+			<string>Goodbye screenshots</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Allows you to take as many screenshots as you like without having to see the annoying popup asking you to edit each one.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.i0stweak3r.stylish11</string>
+			<key>key</key>
+			<string>key25</string>
+			<key>label</key>
+			<string>Skip screenshot preview</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Adds light, almost clear highlights to icon and folder labels.  Opacity of the highlights can be adjusted with the slider below.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.i0stweak3r.stylish11</string>
+			<key>key</key>
+			<string>key1</string>
+			<key>label</key>
+			<string>Add regular highlights</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Adjusts the strength / opacity of the highlights. Range is from zero (invisible) to one hundred (solid).</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>com.i0stweak3r.stylish11/settingschanged</string>
+			<key>cell</key>
+			<string>PSSliderCell</string>
+			<key>cellClass</key>
+			<string>HBDiscreteSliderTableCell</string>
+			<key>default</key>
+			<real>50</real>
+			<key>defaults</key>
+			<string>com.i0stweak3r.stylish11</string>
+			<key>key</key>
+			<string>highlightlevel</string>
+			<key>max</key>
+			<integer>100</integer>
+			<key>min</key>
+			<integer>0</integer>
+			<key>showValue</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Adds colorful highlights to the app icon labels. Opacity can be adjusted with the highlight slider. </string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.i0stweak3r.stylish11</string>
+			<key>key</key>
+			<string>key3</string>
+			<key>label</key>
+			<string>Add colorful highlights</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Changes app icon labels / text from white (default) to black.  </string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.i0stweak3r.stylish11</string>
+			<key>key</key>
+			<string>key2</string>
+			<key>label</key>
+			<string>Black icon text</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Changes the app icon text a variety of different colors.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.i0stweak3r.stylish11</string>
+			<key>key</key>
+			<string>key22</string>
+			<key>label</key>
+			<string>Colorful icon text</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Hides the page dots above the dock, and on the lockscreen.  Requires respring to enable/disable.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.i0stweak3r.stylish11</string>
+			<key>key</key>
+			<string>key9</string>
+			<key>label</key>
+			<string>Remove page dots</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Adds color to the page indicator dots above dock, in folders ,and on the lockscreen. Colors change with each respring.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.i0stweak3r.stylish11</string>
+			<key>key</key>
+			<string>key10</string>
+			<key>label</key>
+			<string>Colored page dots</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Colors change for date, time, and "press home to unlock" text on the lockscreen.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.i0stweak3r.stylish11</string>
+			<key>key</key>
+			<string>key13</string>
+			<key>label</key>
+			<string>Randomize LS colors</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Makes date, time, and "press home to unlock" text black.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.i0stweak3r.stylish11</string>
+			<key>key</key>
+			<string>key14</string>
+			<key>label</key>
+			<string>Black LS Text</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Randomize text colors all over your device. Includes the spotlight search, passcode entry screen, the app switcher, timer, alarms, alerts, parts of notifications and more.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.i0stweak3r.stylish11</string>
+			<key>key</key>
+			<string>key15</string>
+			<key>label</key>
+			<string>Random text colors</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Changes text labels to black in most views, including the passcode entry, spotlight search,, today view, timer, alarms, alerts, parts of notifications and more.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.i0stweak3r.stylish11</string>
+			<key>key</key>
+			<string>key16</string>
+			<key>label</key>
+			<string>Mostly black text</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Extra Icon Options</string>
+		</dict>
+		<dict>
+			<key>cellClass</key>
+			<string>HBImageTableCell</string>
+			<key>height</key>
+			<integer>60</integer>
+			<key>icon</key>
+			<string>SBIconOptions@2x.png</string>
+			<key>label</key>
+			<string>Big Image</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Makes all the icons and folders square shaped, reminiscent of legacy iOS versions. *Folders require a respring to take effect.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.i0stweak3r.stylish11</string>
+			<key>key</key>
+			<string>key11</string>
+			<key>label</key>
+			<string>Square icons</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>*Makes all folder icons circular, instead of normal squircle.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.i0stweak3r.stylish11</string>
+			<key>key</key>
+			<string>key17</string>
+			<key>label</key>
+			<string>Circular folders</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>*Makes folder icons translucent, removing the main blur, showing the icons inside.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.i0stweak3r.stylish11</string>
+			<key>key</key>
+			<string>key8</string>
+			<key>label</key>
+			<string>Translucent folder icons</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Quickly hides notification badges from all apps for a cleaner home screen, with the option to bring them back if you like.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.i0stweak3r.stylish11</string>
+			<key>key</key>
+			<string>key4</string>
+			<key>label</key>
+			<string>Hide all icon badges</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Stops icons from jittering after force touch for rearranging on home screen.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.i0stweak3r.stylish11</string>
+			<key>key</key>
+			<string>key12</string>
+			<key>label</key>
+			<string>No jitters</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Hides icons, badges and accessories so only labels are showing (and highlights if selected).</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.i0stweak3r.stylish11</string>
+			<key>key</key>
+			<string>key35</string>
+			<key>label</key>
+			<string>Hide everything but labels</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Hides icon label text and any highlights associated with it, for a cleaner home feel.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.i0stweak3r.stylish11</string>
+			<key>key</key>
+			<string>key36</string>
+			<key>label</key>
+			<string>Hide labels</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Hides extra icon accessories (dots for newly installed or updated apps and delete app buttons). Useful if you have kids playing with device or if just want a cleaner look and feel. </string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.i0stweak3r.stylish11</string>
+			<key>key</key>
+			<string>key6</string>
+			<key>label</key>
+			<string>Accessory free</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Changes mostly the buttons and modules in Control Center to be square or rectangular shaped rather then circular or somewhere in between.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.i0stweak3r.stylish11</string>
+			<key>key</key>
+			<string>isSquareCC</string>
+			<key>label</key>
+			<string>*All square CC</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Changes bottom shelf buttons and modules in Control Center to be circular or rounded, for a more uniform look and feel.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.i0stweak3r.stylish11</string>
+			<key>key</key>
+			<string>isCircularCC</string>
+			<key>label</key>
+			<string>*Circular CC buttons</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>*Some changes require a respring to be enabled, disabled or to give the device an updated color scheme. Features with a star next to it require respring, othere's may not need it. Still beta testing.
+</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>respring</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>Respring</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>If you like this tweak, and want to support further development, plz consider a small donation.</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>donate</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>icon</key>
+			<string>Paypal@2x.png</string>
+			<key>label</key>
+			<string>Donate</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Forum for everything iOS</string>
+		</dict>
+		<dict>
+			<key>cellClass</key>
+			<string>HBLinkTableCell</string>
+			<key>icon</key>
+			<string>iosgods.png</string>
+			<key>label</key>
+			<string>Visit us at: iosgods.com</string>
+			<key>url</key>
+			<string>https://iosgods.com/profile/258629-i0s_tweak3r/</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Developer Twitter</string>
+		</dict>
+		<dict>
+			<key>big</key>
+			<true/>
+			<key>cellClass</key>
+			<string>HBTwitterCell</string>
+			<key>height</key>
+			<integer>85</integer>
+			<key>label</key>
+			<string>Contact: i0s_tweak3r</string>
+			<key>showAvatar</key>
+			<true/>
+			<key>user</key>
+			<string>BrianVS</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>About</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSLinkCell</string>
+			<key>detail</key>
+			<string>HBCBAboutListController</string>
+			<key>isController</key>
+			<true/>
+			<key>label</key>
+			<string>ABOUT</string>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>Stylish11</string>
+</dict>
+</plist>
