@@ -2,17 +2,10 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #include <CSColorPicker/CSColorPicker.h>
+/** Not needed
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
-
-
-/** This was in makefile don't think it's needed
-going to check how and where CepheiPrefs should be added the correct way. Again this project was originally my first big tweak, and this is still only one I've used Cephei on besides original Stylish tweak.
-
-#import <Cephei/Cephei.framework>
-#import <CepheiPrefs/CepheiPrefs.framework>
 **/
-
 
 #define PLIST_PATH                                                                                                                  \
 @"/var/mobile/Library/Preferences/com.i0stweak3r.stylish11.plist"
