@@ -1,4 +1,4 @@
-
+#import <spawn.h>
 #import "HBCBRootListController.h"
 #import "UIColor+randomPrefs.h"
 #include <CSColorPicker/CSColorPicker.h>
@@ -15,7 +15,8 @@ return [UIColor colorWithRed: (r/255.0) green: (g/255.0) blue: (b/255.0) alpha:1
 @end
 
 @implementation HBCBRootListController
-/**
+/** Was trying to change to appearance settings imstead of HBListController overrides but had errors..
+
 - (instancetype)init {
     self = [super init];
 
@@ -55,34 +56,6 @@ return [UIColor colorWithRed: (r/255.0) green: (g/255.0) blue: (b/255.0) alpha:1
 }
 */
 
-/** from StackXI Github, trying to get viewWillAppear and DidAppear to work (no luck), left this portion out when I tried
-
-    CGRect frame = self.table.bounds;
-    frame.origin.y = -frame.size.height;
-
-    [self.navigationController.navigationController.navigationBar setShadowImage: [UIImage new]];
-    self.navigationController.navigationController.navigationBar.translucent = YES;
-}
-**/
-
-/**
--(void)viewWillAppear:(BOOL)animated
-{
-
-//necessary for picked colors to update immediately but has compile error
-	 [self reload]; //old call but left just in case
-
-	[super viewWillAppear:animated];
-}
-
--(void)viewDidAppear:(BOOL)animated
-{
- 
-
-	[super viewDidAppear:animated];
-}
-****/
-
 
 
 + (UIColor *)hb_tintColor {
@@ -110,9 +83,12 @@ return [UIColor colorWithRed: (r/255.0) green: (g/255.0) blue: (b/255.0) alpha:1
     [self.view endEditing:YES];
 }
 
--(void)respring{
-  system("killall -9 SpringBoard");
+- (void)respring:(id)sender {
+	pid_t pid;
+    const char* args[] = {"killall", "backboardd", NULL};
+    posix_spawn(&pid, "/usr/bin/killall", NULL, NULL, (char* const*)args, NULL);
 }
+
 - (void)donate
 {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://paypal.me/i0stweak3r"]];

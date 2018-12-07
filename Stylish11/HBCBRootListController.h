@@ -13,7 +13,7 @@
 
 @interface HBCBRootListController : HBRootListController
 
--(void)respring;
+-(void)respring:(id)sender;
 - (void)donate;
 -(void)save; //not sure the use of this
 @end
