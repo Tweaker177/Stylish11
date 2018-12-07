@@ -486,7 +486,27 @@ return;
 return %orig;
 }
 %end
-/*************Added Dock Color and custom highlight color              *********/
+
+//FloatyDock compatibility
+
+%hook SBFloatingDockPlatterView
+-(void)layoutSubviews {
+if(kDockColorEnabled) {
+%orig;
+colorTrans = Opacityval/100;
+UIColor *withOutAlpha= [UIColor colorFromHexString:kDockColorHex];
+
+
+self.backgroundColor = [withOutAlpha colorWithAlphaComponent:colorTrans];
+
+return;
+}
+return %orig;
+}
+%end
+/******
+Added Dock Color and custom highlight color              
+******/
 
 %hook SBIconLabelImageParametersBuilder
 -(void) setWantsFocusHighlight:(bool)arg1 {
