@@ -7,11 +7,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 #define PLIST_PATH @"/var/mobile/Library/Preferences/com.i0stweak3r.stylish11.plist"
-/**
-static
-NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile:PLIST_PATH];
 
-**/
 
 double dockpercent = 0.f;
 double dockheightfrac = dockpercent/100;
@@ -1299,21 +1295,3 @@ return YES;
 return %orig;
 }
 %end
-/**
-%hook CCUIControlCenterButton
--(unsigned long long) roundCorners {
-if(GetPrefBool(@"isSquareCC")) {
-kCCCornerRadius= 0;
-return kCCCornerRadius;
-%orig;
-}
-else if(GetPrefBool(@"isCircularCC")) {
-kCCCornerRadius= 35;
-return kCCCornerRadius;
-%orig;
-}
-else {
-return %orig; }
-}
-%end
-**/
