@@ -6,6 +6,11 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
 */
+/** Not needed
+#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
+**/
+
 #define PLIST_PATH                                                                                                                  \
 @"/var/mobile/Library/Preferences/com.i0stweak3r.stylish11.plist"
 
@@ -491,7 +496,27 @@ return;
 return %orig;
 }
 %end
-/*************Added Dock Color and custom highlight color              *********/
+
+//FloatyDock compatibility
+
+%hook SBFloatingDockPlatterView
+-(void)layoutSubviews {
+if(kDockColorEnabled) {
+%orig;
+colorTrans = Opacityval/100;
+UIColor *withOutAlpha= [UIColor colorFromHexString:kDockColorHex];
+
+
+self.backgroundColor = [withOutAlpha colorWithAlphaComponent:colorTrans];
+
+return;
+}
+return %orig;
+}
+%end
+/******
+Added Dock Color and custom highlight color              
+******/
 
 //FloatyDock compatibility
 

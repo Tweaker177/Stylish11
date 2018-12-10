@@ -795,7 +795,7 @@
 		</dict>
 		<dict>
 			<key>action</key>
-			<string>respring</string>
+			<string>respring:</string>
 			<key>cell</key>
 			<string>PSButtonCell</string>
 			<key>label</key>
