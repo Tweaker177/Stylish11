@@ -2,14 +2,10 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #include <CSColorPicker/CSColorPicker.h>
-/* Not needed unless I add sound options to screenshots......
+/* Not needed unless I add sound, haptic options to screenshots......
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
 */
-/** Not needed
-#import <AudioToolbox/AudioToolbox.h>
-#import <AVFoundation/AVFoundation.h>
-**/
 
 #define PLIST_PATH                                                                                                                  \
 @"/var/mobile/Library/Preferences/com.i0stweak3r.stylish11.plist"
