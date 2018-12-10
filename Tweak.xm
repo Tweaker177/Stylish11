@@ -2,18 +2,10 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #include <CSColorPicker/CSColorPicker.h>
+/* Not needed unless I add sound options to screenshots......
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
-
-
-/** This was in makefile don't think it's needed
-going to check how and where CepheiPrefs should be added the correct way. Again this project was originally my first big tweak, and this is still only one I've used Cephei on besides original Stylish tweak.
-
-#import <Cephei/Cephei.framework>
-#import <CepheiPrefs/CepheiPrefs.framework>
-**/
-
-
+*/
 #define PLIST_PATH                                                                                                                  \
 @"/var/mobile/Library/Preferences/com.i0stweak3r.stylish11.plist"
 
@@ -51,6 +43,7 @@ static bool kRoundUI= YES; //isCircularCC
 static bool kHideDotsAndX = YES; //key6
 static bool kScreenshotsDisabled = NO;
  //key23
+
 static bool kSquareIcons = YES; //key11
 static bool kCircularFolders = YES; //key17
 static bool kWantsRandomHighlights = YES;
@@ -76,6 +69,8 @@ static NSString *kCustomHighlightHex = @"FFFFFF";
 static UIColor *customHighlightColor = [[UIColor colorFromHexString:kCustomHighlightHex] colorWithAlphaComponent:highlightAlph];
 static bool kFolderColorEnabled = YES;
 static bool kOpenFolderColorEnabled = YES;
+static NSString *kClosedFolderColorHex = @"FFFFFF";
+static NSString *kOpenFolderColorHex = @"FFFFFF";
 
 
 static UIColor *screenColor;
@@ -84,6 +79,9 @@ static double kCCCornerRadius;
 
 @interface UIColor (myColors)
 +(UIColor *)randomSpot;
+@end
+
+@interface SBFloatingDockPlatterView : UIView
 @end
 
 @interface SBFloatyFolderBackgroundClipView : UIView
@@ -375,10 +373,10 @@ return %orig;
 /********* NEW *******/
 %hook SBFolderBackgroundView
 -(void)layoutSubviews {
-if((kFolderColorEnabled)&&(kOpenFolderColorEnabled)) {
+if(kOpenFolderColorEnabled) {
 %orig;
 colorTrans = Opacityval/100;
-UIColor *withOutAlpha= [UIColor colorFromHexString:kDockColorHex];
+UIColor *withOutAlpha= [UIColor colorFromHexString:kOpenFolderColorHex];
 
 
 
@@ -394,10 +392,10 @@ return %orig;
 
 %hook SBFloatyFolderBackgroundClipView
 -(void)layoutSubviews {
-if((kFolderColorEnabled)&&(kOpenFolderColorEnabled)) {
+if(kOpenFolderColorEnabled) {
 %orig;
 colorTrans = Opacityval/100;
-UIColor *withOutAlpha= [UIColor colorFromHexString:kDockColorHex];
+UIColor *withOutAlpha= [UIColor colorFromHexString:kOpenFolderColorHex];
 
 
 
@@ -415,7 +413,7 @@ return %orig;
 if(kFolderColorEnabled) {
 %orig;
 colorTrans = Opacityval/100;
-UIColor *withOutAlpha= [UIColor colorFromHexString:kDockColorHex];
+UIColor *withOutAlpha= [UIColor colorFromHexString:kClosedFolderColorHex];
 
 
 
@@ -429,7 +427,7 @@ return %orig;
 if(kFolderColorEnabled) {
 %orig;
 colorTrans = Opacityval/100;
-UIColor *withOutAlpha= [UIColor colorFromHexString:kDockColorHex];
+UIColor *withOutAlpha= [UIColor colorFromHexString:kClosedFolderColorHex];
 
 
 self.backgroundColor = [withOutAlpha colorWithAlphaComponent:colorTrans];
@@ -446,7 +444,7 @@ return %orig;
 if(kFolderColorEnabled) {
 %orig;
 colorTrans = Opacityval/100;
-UIColor *withOutAlpha= [UIColor colorFromHexString:kDockColorHex];
+UIColor *withOutAlpha= [UIColor colorFromHexString:kClosedFolderColorHex];
 
 /**** just added **********/
 self.backgroundColor = [withOutAlpha colorWithAlphaComponent:colorTrans];
@@ -494,6 +492,24 @@ return %orig;
 }
 %end
 /*************Added Dock Color and custom highlight color              *********/
+
+//FloatyDock compatibility
+
+%hook SBFloatingDockPlatterView
+-(void)layoutSubviews {
+if(kDockColorEnabled) {
+%orig;
+colorTrans = Opacityval/100;
+UIColor *withOutAlpha= [UIColor colorFromHexString:kDockColorHex];
+
+
+self.backgroundColor = [withOutAlpha colorWithAlphaComponent:colorTrans];
+
+return;
+}
+return %orig;
+}
+%end
 
 %hook SBIconLabelImageParametersBuilder
 -(void) setWantsFocusHighlight:(bool)arg1 {
@@ -1166,7 +1182,11 @@ kCustomHighlightHex =  [[prefs objectForKey:@"customHighlightHex"] stringValue];
 
 kFolderColorEnabled = [prefs boolForKey:@"folderColorEnabled"];
 
+kClosedFolderColorHex =  [[prefs objectForKey:@"closedFolderColorHex"] stringValue];
+
 kOpenFolderColorEnabled = [prefs boolForKey:@"openFolderColorEnabled"];
+
+kOpenFolderColorHex = [[prefs objectForKey:@"openFolderColorHex"] stringValue];
 
 }
 
@@ -1178,36 +1198,4 @@ kOpenFolderColorEnabled = [prefs boolForKey:@"openFolderColorEnabled"];
                                     CFSTR("com.i0stweak3r.stylish11/settingschanged"), NULL,
                                     CFNotificationSuspensionBehaviorDeliverImmediately);
     loadPrefs();
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**
-%hook CCUIControlCenterButton
--(unsigned long long) roundCorners {
-if(GetPrefBool(@"isSquareCC")) {
-kCCCornerRadius= 0;
-return kCCCornerRadius;
-%orig;
-}
-else if(GetPrefBool(@"isCircularCC")) {
-kCCCornerRadius= 35;
-return kCCCornerRadius;
-%orig;
-}
-else {
-return %orig; }
-}
-%end
-**/
+     }
