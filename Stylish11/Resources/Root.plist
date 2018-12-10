@@ -29,7 +29,7 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>footerText</key>
-			<string>Customize dock height and opacity, app icons and labels, add colorful highlights, randomize text colors all over, change Control Center appearance and more. Stylish can make your device look different every time you use it. Now iOS 11 compatible!</string>
+			<string>Customize dock height, color and opacity, folder color, app icons and labels, add colorful highlights, randomize text colors all over, change Control Center appearance and more. Stylish can make your device look different every time you use it. 40+ features. Huge update. Enjoy!</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -130,10 +130,10 @@
 		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Note: while some options change without respring some need a respring to fully take affect, or revert to stock.</string>
 			<key>label</key>
-	<string>Dock and Folder Coloring</string>
-<key>footerText</key>
-<string>Note: while some options change without respring some need a respring to fully take affect, or revert to stock.</string>
+			<string>Dock and Folder Coloring</string>
 		</dict>
 		<dict>
 			<key>PostNotification</key>
@@ -152,6 +152,26 @@
 		<dict>
 			<key>PostNotification</key>
 			<string>com.i0stweak3r.stylish11/settingschanged</string>
+			<key>alpha</key>
+			<false/>
+			<key>cell</key>
+			<string>PSLinkCell</string>
+			<key>cellClass</key>
+			<string>CSColorDisplayCell</string>
+			<key>defaults</key>
+			<string>com.i0stweak3r.stylish11</string>
+			<key>defaultsPath</key>
+			<string>/Library/PreferenceBundles/Stylish11.bundle</string>
+			<key>fallback</key>
+			<string>FFFFFF</string>
+			<key>key</key>
+			<string>dockColorHex</string>
+			<key>label</key>
+			<string>Dock color:</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>com.i0stweak3r.stylish11/settingschanged</string>
 			<key>cell</key>
 			<string>PSSwitchCell</string>
 			<key>default</key>
@@ -161,7 +181,27 @@
 			<key>key</key>
 			<string>folderColorEnabled</string>
 			<key>label</key>
-	<string>Enable colored folders</string>
+			<string>Enable colored folders</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>com.i0stweak3r.stylish11/settingschanged</string>
+			<key>alpha</key>
+			<false/>
+			<key>cell</key>
+			<string>PSLinkCell</string>
+			<key>cellClass</key>
+			<string>CSColorDisplayCell</string>
+			<key>defaults</key>
+			<string>com.i0stweak3r.stylish11</string>
+			<key>defaultsPath</key>
+			<string>/Library/PreferenceBundles/Stylish11.bundle</string>
+			<key>fallback</key>
+			<string>FFFFFF</string>
+			<key>key</key>
+			<string>closedFolderColorHex</string>
+			<key>label</key>
+			<string>Folder icon color:</string>
 		</dict>
 		<dict>
 			<key>PostNotification</key>
@@ -175,9 +215,8 @@
 			<key>key</key>
 			<string>openFolderColorEnabled</string>
 			<key>label</key>
-		<string>Color open folders</string>
+			<string>Color open folders</string>
 		</dict>
-
 		<dict>
 			<key>PostNotification</key>
 			<string>com.i0stweak3r.stylish11/settingschanged</string>
@@ -188,15 +227,15 @@
 			<key>cellClass</key>
 			<string>CSColorDisplayCell</string>
 			<key>defaults</key>
-	<string>com.i0stweak3r.stylish11</string>
+			<string>com.i0stweak3r.stylish11</string>
 			<key>defaultsPath</key>
 			<string>/Library/PreferenceBundles/Stylish11.bundle</string>
 			<key>fallback</key>
 			<string>FFFFFF</string>
 			<key>key</key>
-			<string>dockColorHex</string>
+			<string>openFolderColorHex</string>
 			<key>label</key>
-	<string>Dock and Folder color:</string>
+			<string>Open folder color:</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -795,7 +834,7 @@
 		</dict>
 		<dict>
 			<key>action</key>
-			<string>respring:</string>
+			<string>respring</string>
 			<key>cell</key>
 			<string>PSButtonCell</string>
 			<key>label</key>
@@ -867,7 +906,7 @@
 			<key>cell</key>
 			<string>PSLinkCell</string>
 			<key>detail</key>
-			<string>HBCBAboutListController</string>
+	<string>HBCBAboutListController</string>
 			<key>isController</key>
 			<true/>
 			<key>label</key>
