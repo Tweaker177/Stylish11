@@ -2,10 +2,6 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #include <CSColorPicker/CSColorPicker.h>
-/* Not needed unless I add sound, haptic options to screenshots......
-#import <AudioToolbox/AudioToolbox.h>
-#import <AVFoundation/AVFoundation.h>
-*/
 
 #define PLIST_PATH                                                                                                                  \
 @"/var/mobile/Library/Preferences/com.i0stweak3r.stylish11.plist"
@@ -53,6 +49,7 @@ static bool kWantsClearHighlights = YES; //key1
 static bool kBlackText = YES; //key2
 static bool kRandomText = YES; //key22
 static bool kBlackLabel = YES; //key16
+//Changed to custom colored label
 static bool kRandomLabel = YES; //key15
 static bool kHideBadges = YES; //key4
 static bool kRandomLS = YES; //key13
@@ -72,35 +69,56 @@ static bool kFolderColorEnabled = YES;
 static bool kOpenFolderColorEnabled = YES;
 static NSString *kClosedFolderColorHex = @"FFFFFF";
 static NSString *kOpenFolderColorHex = @"FFFFFF";
+static bool kNoThemeImage = NO;
+static NSString *kCustomUILabelColor = @"FFFFFF";
+static bool kDarkSearchMode = YES;
+
+@interface SBSearchBackdropView : UIView
+-(id)initWithFrame:(CGRect)frame;
+-(void)layoutSubviews;
+@end
 
 
-static UIColor *screenColor;
 static double kCCContinuousControl;
 static double kCCCornerRadius;
+
+@interface SSScreenshotsWindow : UIWindow
+@property(nonatomic,assign)BOOL hidden;
+-(id)init;
+@end
 
 @interface UIColor (myColors)
 +(UIColor *)randomSpot;
 @end
+//customize UIColor class for spotlight
 
 @interface SBFloatingDockPlatterView : UIView
 @end
+//Needed to add backgroundColor to  
+//FloatyDock, not most elegant but works
 
 @interface SBFloatyFolderBackgroundClipView : UIView
 @end
-
+//Open Folders ^
+//Folder icon no theme(stays in bounds)
 @interface SBFolderIconBackgroundView : UIView
 @end
 
+//Folder theme or square folder color
 @interface SBFolderIconImageView : UIView
 @end
 
-
+//Color dockview
 @interface SBDockView : UIView
 @end
+
+//Open Folders
 
 @interface SBFolderBackgroundView : UIView
 @end
 
+//Category to implement random spotlight
+//Uses all system colors
 @implementation UIColor(myColors) 
 +(UIColor *)randomSpot {
 int randomInt =  arc4random_uniform(12);
@@ -135,6 +153,8 @@ break;
 }
 @end
 
+//5 choices-default, random, red, green,orange
+//For spotlight 🔍,typed text color, + mic
 
 %hook SPUITextField
  -(void)updateWithColor:(UIColor *)tintColor {
@@ -165,6 +185,33 @@ return %orig;
 }
 
 %end
+
+%hook SBSearchBackdropView
+-(id)initWithFrame:(CGRect)frame {
+
+if(kDarkSearchMode) {
+SBSearchBackdropView *o= %orig;
+o.backgroundColor = [UIColor colorWithRed:0.f green:0.f blue:0.f alpha:1];
+[o setBackgroundColor: [UIColor colorWithRed:0.f green:0.f blue:0.f alpha:1.f]];
+o.layer.backgroundColor= [UIColor blackColor].CGColor;
+o.alpha= 1;
+return o;
+}
+return %orig;
+}
+
+-(void)layoutSubviews {
+
+%orig;
+if(kDarkSearchMode && self) {
+self.backgroundColor =  [UIColor colorWithRed:0.f green:0.f blue:0.f alpha:1.f];
+[self setBackgroundColor:[UIColor colorWithRed:0.f green:0.f blue:0.f alpha:1.f]];
+return;
+}
+return;
+}
+%end
+
 
 
 %hook SBIconColorSettings
@@ -201,6 +248,7 @@ return %orig;
 }
 %end
 
+//Hide labels by setting alpha to zero
 %hook SBIconView
 -(void) setIconLabelAlpha:(double)arg1 {
 if(kWantsNoLabels) {
@@ -243,7 +291,7 @@ return %orig(arg1);
 return %orig;
 }
 %end
-//Set alpha to zero to hide icons n folders
+//Set alpha to zero to hide icons and folders
 
 
 %hook SBIconView
@@ -274,6 +322,7 @@ return %orig;
 return %orig; 
 }
 
+//Newly DL apps dot and delete app X
 
 +(bool) canShowLabelAccessoryView {
 if((kHideAllButLabels) || (kHideDotsAndX)) {
@@ -281,9 +330,12 @@ return FALSE;
 }
 return %orig;
 }
-//hide tiny icon dots and X's to delete
-
 %end
+
+//Snowboard conflicts and overrides this
+//Anemone does not, works only with Anemone
+//Or if no theme engine is installed
+//Folder icon corner radius
 
 %hook SBIconImageView
 +(double)cornerRadius {
@@ -314,6 +366,7 @@ return %orig;
 }
 %end
 
+//No Jitters is shaking apps when rearranging
 %hook SBIconColorSettings
 -(bool)suppressJitter {
 if(kNoJitters) {
@@ -371,7 +424,9 @@ return %orig;
 return %orig;
 }
 %end
-/********* NEW *******/
+
+//Open folder color
+
 %hook SBFolderBackgroundView
 -(void)layoutSubviews {
 if(kOpenFolderColorEnabled) {
@@ -390,6 +445,8 @@ return %orig;
 }
 %end
 
+//Maybe not needed but wanted to make sure 
+//it works and updates without respring
 
 %hook SBFloatyFolderBackgroundClipView
 -(void)layoutSubviews {
@@ -409,9 +466,12 @@ return %orig;
 }
 %end
 
+//Square folder color and or theme support
+//Also this updates without respring
+
 %hook SBFolderIconImageView
 -(void)layoutSubviews {
-if(kFolderColorEnabled) {
+if((kFolderColorEnabled)&& (!kNoThemeImage)) {
 %orig;
 colorTrans = Opacityval/100;
 UIColor *withOutAlpha= [UIColor colorFromHexString:kClosedFolderColorHex];
@@ -425,7 +485,7 @@ return %orig;
 }
 
 -(void)updateImageAnimated:(BOOL)animated {
-if(kFolderColorEnabled) {
+if((kFolderColorEnabled)&& (!kNoThemeImage)) {
 %orig;
 colorTrans = Opacityval/100;
 UIColor *withOutAlpha= [UIColor colorFromHexString:kClosedFolderColorHex];
@@ -438,8 +498,11 @@ return %orig;
 }
 %end
 
+//closed folders- stays in bounds- not square
+
 %hook SBFolderIconBackgroundView
 // iVar UIView *_solidColorBackgroundView
+//Didn't use the iVar used subviews instead
 
 -(void)layoutSubviews {
 if(kFolderColorEnabled) {
@@ -447,7 +510,6 @@ if(kFolderColorEnabled) {
 colorTrans = Opacityval/100;
 UIColor *withOutAlpha= [UIColor colorFromHexString:kClosedFolderColorHex];
 
-/**** just added **********/
 self.backgroundColor = [withOutAlpha colorWithAlphaComponent:colorTrans];
 return;
 }
@@ -458,6 +520,7 @@ return %orig;
 
 
 %hook SBDockView
+
 -(void) setBackgroundAlpha:(double)arg1 {
 
 if((kSlidersEnabled) && (kDockColorEnabled)){
@@ -486,22 +549,25 @@ UIColor *withOutAlpha= [UIColor colorFromHexString:kDockColorHex];
 
 
 self.backgroundColor = [withOutAlpha colorWithAlphaComponent:colorTrans];
-
 return;
 }
 return %orig;
 }
+
 %end
 
-//FloatyDock compatibility
+
+//FloatyDock limited color compatibility
+
 
 %hook SBFloatingDockPlatterView
 -(void)layoutSubviews {
+// +(id)backgroundTintColor may work better
+
 if(kDockColorEnabled) {
 %orig;
 colorTrans = Opacityval/100;
 UIColor *withOutAlpha= [UIColor colorFromHexString:kDockColorHex];
-
 
 self.backgroundColor = [withOutAlpha colorWithAlphaComponent:colorTrans];
 
@@ -509,27 +575,18 @@ return;
 }
 return %orig;
 }
-%end
-/******
-Added Dock Color and custom highlight color              
-******/
 
-//FloatyDock compatibility
+//From runtime header- for Floating Docks
+//Maybe can make square and more opaque
+// -(double)maximumContinuousCornerRadius;
 
-%hook SBFloatingDockPlatterView
--(void)layoutSubviews {
-if(kDockColorEnabled) {
-%orig;
-colorTrans = Opacityval/100;
-UIColor *withOutAlpha= [UIColor colorFromHexString:kDockColorHex];
-
-
-self.backgroundColor = [withOutAlpha colorWithAlphaComponent:colorTrans];
-
-return;
+-(double)_maxShadowViewAlpha {
+if(kSlidersEnabled) {
+return OpacityVal/100;
 }
 return %orig;
 }
+
 %end
 
 %hook SBIconLabelImageParametersBuilder
@@ -629,6 +686,28 @@ return %orig;
 
 
 %hook SBUILegibilityLabel
+-(BOOL)_needsColorImage {
+if(kRandomLS || kBlackLS) {
+return YES;
+}
+return %orig;
+}
+
+-(id)textColor {
+if(kRandomLS) {
+int r = arc4random_uniform(255);
+int g = arc4random_uniform(255);
+int b = arc4random_uniform(255);
+return [UIColor colorWithRed:(r/255.0) green:(g/255.0) blue:(b/255.0) alpha:1.0];
+}
+
+else if(kBlackLS) {
+return  [UIColor colorFromHexString:kLockscreenHex];
+}
+else { 
+return %orig;
+}
+}
 -(void) setTextColor:(id)arg1 {
 if(kRandomLS) {
 int r = arc4random_uniform(255);
@@ -659,7 +738,7 @@ return %orig;
 }
 
 else if(kBlackLabel) {
-arg1= [UIColor colorWithRed:(0/255.0) green:(0/255.0) blue:(0/255.0) alpha:1.0];
+arg1= [UIColor colorFromHexString:kCustomUILabelColor];
 return %orig;
 }
 else { 
@@ -801,12 +880,13 @@ return %orig;
 %hook SBScreenFlash
 -(void) _createUIWithColor:(id)arg1 {
  if(kHideScreenFlash) {
-
+/* not needed leftover from Stylish, didn't work on 11 or 12.
 int rx = arc4random_uniform(255);
 int gx = arc4random_uniform(255);
 int bx = arc4random_uniform(255);
 screenColor=  [UIColor colorWithRed:(rx/255.0) green:(gx/255.0) blue:(bx/255.0) alpha:1.0];
-arg1= screenColor;
+*/
+arg1= nil; //changed for 12
 return %orig(arg1);
 }
 return %orig; 
@@ -814,7 +894,10 @@ return %orig;
 
 -(void) flashColor:(id)arg1 withCompletion:(id)arg2 {
  if(kHideScreenFlash) {
+/*
 arg1= screenColor;
+*/
+arg2= nil; //just added for ios 12
 return %orig(arg1,arg2);
 }
 else if(kScreenshotsDisabled) {
@@ -825,17 +908,11 @@ return %orig;
 }
 
 -(void) flashWhiteWithCompletion:(id)arg1 {
-if(kHideScreenFlash) {
+if((kHideScreenFlash) || (kScreenshotsDisabled)) {
 arg1= nil;
-return %orig(arg1);
+return %orig(arg1);  //changed for 12
 }
-else if (kScreenshotsDisabled) {
-arg1=nil;
-return %orig(arg1);
-}
-else {
 return %orig;
-}
 }
 %end 
  
@@ -843,6 +920,14 @@ return %orig;
 
 
 %hook SSScreenshotsWindow
+-(id)init {
+if(kHideScreenFlash) {
+self = %orig;
+[self setHidden:YES];
+return self;
+}
+return %orig;
+}
 -(void) setContentsHidden:(bool)arg1 {
 if (kHideScreenFlash) {
 arg1= TRUE;
@@ -1159,13 +1244,15 @@ kWantsClearHighlights =  [prefs boolForKey:@"wantsClearHighlights"];
  //key1
 
 kBlackText = [prefs boolForKey:@"key2"];
- //key2
+ //key2= Custom Text Color not black anymore
 
 kRandomText = [prefs boolForKey:@"key22"];
  //key22
 
 kBlackLabel = [prefs boolForKey:@"key16"];
- //key16
+ //key16 changed to custom UIcolor
+
+kCustomUILabelColor= [[prefs objectForKey:@"customUILabelColor"] stringValue];
 
 kRandomLabel = [prefs boolForKey:@"key15"];
  //key15
@@ -1177,7 +1264,9 @@ kRandomLS =  [prefs boolForKey:@"key13"];
  //key13
 
 kBlackLS = [prefs boolForKey:@"key14"];
- //key14
+ //key14= custom color for LS 
+
+kLockscreenHex = [[prefs objectForKey:@"LSColorHex"] stringValue];
 
 kHidePageDots =  [prefs boolForKey:@"key9"];
  //key9
@@ -1188,7 +1277,7 @@ kHideScreenFlash = [prefs boolForKey:@"key25"];
 kRandomPageDots = [prefs boolForKey:@"key10"];
  //key10
 
-kLockscreenHex = [[prefs objectForKey:@"LSColorHex"] stringValue];
+
 
 kIconHex = [[prefs objectForKey:@"iconColorHex"] stringValue];
 
@@ -1209,6 +1298,10 @@ kOpenFolderColorEnabled = [prefs boolForKey:@"openFolderColorEnabled"];
 
 kOpenFolderColorHex = [[prefs objectForKey:@"openFolderColorHex"] stringValue];
 
+kNoThemeImage =  [prefs boolForKey:@"noThemeImage"];
+
+kDarkSearchMode =   [prefs boolForKey:@"darkSearchMode"];
+
 }
 
 
@@ -1219,4 +1312,4 @@ kOpenFolderColorHex = [[prefs objectForKey:@"openFolderColorHex"] stringValue];
                                     CFSTR("com.i0stweak3r.stylish11/settingschanged"), NULL,
                                     CFNotificationSuspensionBehaviorDeliverImmediately);
     loadPrefs();
-     }
+}
