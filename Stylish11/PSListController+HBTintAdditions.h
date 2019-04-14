@@ -9,7 +9,6 @@
 @interface PSListController (HBTintAdditions)
 
 
-
 /**
  * The appearance settings for the view controller.
  *
