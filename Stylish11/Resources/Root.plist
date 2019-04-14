@@ -19,7 +19,7 @@
 			<key>icon</key>
 			<string>icon@3x.png</string>
 			<key>packageIdentifier</key>
-			<string>com.i0stweak3r.stylish11</string>
+	<string>com.i0stweak3r.stylish11</string>
 			<key>subtitleColor</key>
 			<string>#00ABF6</string>
 			<key>titleColor</key>
@@ -213,6 +213,20 @@
 			<key>defaults</key>
 			<string>com.i0stweak3r.stylish11</string>
 			<key>key</key>
+			<string>noThemeImage</string>
+			<key>label</key>
+			<string>No folder theme img</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>com.i0stweak3r.stylish11/settingschanged</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.i0stweak3r.stylish11</string>
+			<key>key</key>
 			<string>openFolderColorEnabled</string>
 			<key>label</key>
 			<string>Color open folders</string>
@@ -261,7 +275,7 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>footerText</key>
-			<string>Allows you to take as many screenshots as you like without having to see the annoying popup asking you to edit each one.</string>
+			<string>Allows you to take as many screenshots as you like without having to see the annoying popup asking you to edit each one. Also hides screen flash.</string>
 		</dict>
 		<dict>
 			<key>PostNotification</key>
@@ -387,7 +401,7 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>footerText</key>
-			<string>Select color for spotlight search text, microphone and magnifying glass.</string>
+			<string>Select color for spotlight search text, microphone and magnifying glass. Also turn on switch for awesome dark mode in Spotlight. *Respring required.</string>
 		</dict>
 		<dict>
 			<key>PostNotification</key>
@@ -401,7 +415,21 @@
 			<key>key</key>
 			<string>wantsSpotlight</string>
 			<key>label</key>
-			<string>Tint spotlight search</string>
+			<string>Tint Spotlight search</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>com.i0stweak3r.stylish11/settingschanged</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.i0stweak3r.stylish11</string>
+			<key>key</key>
+			<string>darkSearchMode</string>
+			<key>label</key>
+			<string>Spotlight dark mode</string>
 		</dict>
 		<dict>
 			<key>PostNotification</key>
@@ -613,7 +641,7 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>footerText</key>
-			<string>Changes text labels to black in most views, including the passcode entry, spotlight search,, today view, timer, alarms, alerts, CC, parts of notifications and more.</string>
+			<string>Changes text labels to custom picked color in most SB views, including the passcode entry, LS music player, spotlight search, today view, timer, alarms, alerts, control center, parts of notifications and more.</string>
 		</dict>
 		<dict>
 			<key>PostNotification</key>
@@ -627,7 +655,27 @@
 			<key>key</key>
 			<string>key16</string>
 			<key>label</key>
-			<string>Mostly black text</string>
+			<string>Custom UILabel color</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>com.i0stweak3r.stylish11/settingschanged</string>
+			<key>alpha</key>
+			<false/>
+			<key>cell</key>
+			<string>PSLinkCell</string>
+			<key>cellClass</key>
+			<string>CSColorDisplayCell</string>
+			<key>defaults</key>
+			<string>com.i0stweak3r.stylish11</string>
+			<key>defaultsPath</key>
+			<string>/Library/PreferenceBundles/Stylish11.bundle</string>
+			<key>fallback</key>
+			<string>FFFFFF</string>
+			<key>key</key>
+			<string>customUILabelColor</string>
+			<key>label</key>
+			<string>UILabel color:</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -829,12 +877,12 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>footerText</key>
-			<string>*Some changes require a respring to be enabled, disabled or to give the device an updated color scheme. Features with a star next to it require respring, othere's may not need it. Still beta testing.
+			<string>*Some changes require a respring to be enabled, disabled or to give the device an updated color scheme. Features with a star next to it require respring, most others do not.
 </string>
 		</dict>
 		<dict>
 			<key>action</key>
-			<string>respring</string>
+			<string>respring:</string>
 			<key>cell</key>
 			<string>PSButtonCell</string>
 			<key>label</key>
@@ -844,7 +892,33 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>footerText</key>
-			<string>If you like this tweak, please consider a $1.00 donation to support further development. Was originally going to charge, but decided to leave option to "pay" up to the users.</string>
+			<string>For access to all my free tweaks; add my repo, and check out packages available in BigBoss .</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>addMyRepo</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>icon</key>
+			<string>yourepo.png</string>
+			<key>label</key>
+			<string>👉 Add my repo</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>myOtherTweaks</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>icon</key>
+			<string>bigboss.png</string>
+			<key>label</key>
+			<string>Free tweaks in BigBoss</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>If you like this tweak, and want to support further development, please consider a donation.</string>
 		</dict>
 		<dict>
 			<key>action</key>
@@ -855,6 +929,12 @@
 			<string>Paypal@2x.png</string>
 			<key>label</key>
 			<string>Donate</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSTextCell</string>
+			<key>label</key>
+			<string>No PayPal? DM me to donate with Crypto</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -906,7 +986,7 @@
 			<key>cell</key>
 			<string>PSLinkCell</string>
 			<key>detail</key>
-	<string>HBCBAboutListController</string>
+			<string>HBCBAboutListController</string>
 			<key>isController</key>
 			<true/>
 			<key>label</key>
