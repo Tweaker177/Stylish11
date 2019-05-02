@@ -1,6 +1,8 @@
 # Stylish11 
 by i0s_tweak3r 
 
+(Current GitHub version not same as tweak, may have errors in it. Need to go back through changes made from commits from multiple devices.)
+
 A colorfully random way to customize the look and feel of your device, and add extra functionality. Color pickers and other new options added for iOS 11-12.1.2 Project has around 40 options, and can modify most elements of UI either randomly or with custom settings and colorpickers. 
 
 Tweak uses CepheiPrefs by HashBang Productions and lCSColorPicker by CreatureSurvive, proper licenses apply to all code in their libraries/ framework.

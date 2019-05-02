@@ -16,11 +16,10 @@ return [UIColor colorWithRed: (r/255.0) green: (g/255.0) blue: (b/255.0) alpha:1
 + (UIColor *)hb_tintColor {
 	return [UIColor myRedRand];
 }
-#pragma mark - Constants
 
 
 + (NSString *)hb_shareText {
-	NSString *sharestylish = @"I'm using #StylishCydiaPackage by i0s_tweak3r, updated for iOS 11, and packed with new features.  #Stylish11";
+	NSString *sharestylish = @"I'm using #Stylish11 by i0s_tweak3r, updated for iOS 12, and packed with new features.";
 	return sharestylish;
 }
 

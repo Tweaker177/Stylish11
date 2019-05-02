@@ -42,7 +42,6 @@ return [UIColor colorWithRed: (r/255.0) green: (g/255.0) blue: (b/255.0) alpha:1
 	return [UIColor myRedRand];
 }
 
-#pragma mark - Constants
 
 + (NSString *)hb_shareText {
 	NSString *sharestylish = @"I'm using  #Stylish11 #Cydiatweak by i0s_tweak3r. Awesome new update available now: Hosted by @yourepo .";
