@@ -1,5 +1,5 @@
-ARCHS = arm64
-TARGET = iphone:clang;11.2:7.4
+ARCHS = arm64 armv7
+TARGET = iphone:clang;11.2:9.0
 include theos/makefiles/common.mk
 
 #import <Cephei/Cephei>
@@ -8,12 +8,11 @@ include theos/makefiles/common.mk
 BUNDLE_NAME = Stylish11
 Stylish11_FILES = $(wildcard *.m) 
 Stylish11_INSTALL_PATH = /Library/PreferenceBundles
-Stylish11_FRAMEWORKS = UIKit Foundation 
+Stylish11_FRAMEWORKS = UIKit
 Stylish11_PRIVATE_FRAMEWORKS = Preferences
 Stylish11_EXTRA_FRAMEWORKS += Cephei CepheiPrefs
 Stylish11_CFLAGS = -fobjc-arc
 Stylish11_LDFLAGS += -lCSColorPicker
-Stylish11_LIBRARIES += cepheiprefs cephei
 
 include $(THEOS_MAKE_PATH)/bundle.mk
 

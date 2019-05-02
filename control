@@ -1,9 +1,9 @@
 Package: com.i0stweak3r.stylish11
 Name: Stylish11
-Depends: mobilesubstrate, preferenceloader, ws.hbang.common (>= 1.11), com.creaturesurvive.libcscolorpicker, firmware (>= 10.0)
-Version: 1.0.4
+Depends: mobilesubstrate, preferenceloader, ws.hbang.common (>= 1.11), com.creaturesurvive.libcscolorpicker, firmware (>= 11.0)
+Version: 1.0.7
 Architecture: iphoneos-arm
-Description: A colorfully random way to customize the look and feel of your device, and add extra functionality. Color pickers and other new options added for iOS 11-11.4 
+Description: A colorfully random way to customize the look and feel of your device, and add extra functionality. Color pickers and other new options added for iOS 11-12.1.2
 Maintainer: i0s_tweak3r
 Author: i0s_tweak3r
 Section: Tweaks
