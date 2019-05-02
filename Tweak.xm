@@ -2,10 +2,7 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #include <CSColorPicker/CSColorPicker.h>
-/** Not needed
-#import <AudioToolbox/AudioToolbox.h>
-#import <AVFoundation/AVFoundation.h>
-**/
+
 
 #define PLIST_PATH                                                                                                                  \
 @"/var/mobile/Library/Preferences/com.i0stweak3r.stylish11.plist"
@@ -50,17 +47,23 @@ static bool kWantsRandomHighlights = YES;
 //key3
 static bool kWantsClearHighlights = YES; //key1
 static bool kBlackText = YES; //key2
+//key2= CustomIconColor, not black anymore
+static NSString *kIconHex = @"FFFFFF";
+
 static bool kRandomText = YES; //key22
 static bool kBlackLabel = YES; //key16
+//BlackLabel is now custom color
 static bool kRandomLabel = YES; //key15
+
 static bool kHideBadges = YES; //key4
 static bool kRandomLS = YES; //key13
 static bool kBlackLS = YES; //key14
+//BlackLS is now custom color
 static bool kHidePageDots = YES; //key9
 static bool kHideScreenFlash = YES; //key25
 static bool kRandomPageDots = YES; //key10
 static NSString *kLockscreenHex = @"FFFFFF";
-static NSString *kIconHex = @"FFFFFF";
+
 static NSString *kDockColorHex = @"FFFFFF";
 static bool kDockColorEnabled = NO;
 static CGFloat colorTrans;
@@ -1108,7 +1111,7 @@ kWantsTranslucentFolders = [prefs boolForKey:@"wantsTranslucentFolders"];
 kWantsNoLabels = [prefs boolForKey:@"wantsNoLabels"];
 
 kHideAllButLabels =  [prefs boolForKey:@"hideAllButLabels"];
-//key35
+//was key35
 
 kNoJitters = [prefs boolForKey:@"noJitters"];
 
@@ -1117,34 +1120,34 @@ kSquareUI =  [prefs boolForKey:@"isSquareCC"];
 kRoundUI =  [prefs boolForKey:@"isCircularCC"];
 
 kHideDotsAndX = [prefs boolForKey:@"hideDotsAndX"]; 
-//key6
+//was key6
 
 kScreenshotsDisabled = [prefs boolForKey:@"screenshotsDisabled"]; 
-//key23
+//was key23
 
 kSquareIcons =  [prefs boolForKey:@"squareIcons"]; 
-//key11
+//was key11
 
 kCircularFolders =  [prefs boolForKey:@"circularFolders"]; 
-//key17
+//was key17
 
 kWantsRandomHighlights = [prefs boolForKey:@"wantsColorfulHighlights"];
- //key3
+ //was key3
 
 kWantsClearHighlights =  [prefs boolForKey:@"wantsClearHighlights"];
- //key1
+ //was key1
 
 kBlackText = [prefs boolForKey:@"key2"];
- //key2
+ //key2 custom UILabel color
 
 kRandomText = [prefs boolForKey:@"key22"];
  //key22
 
 kBlackLabel = [prefs boolForKey:@"key16"];
- //key16
+ //key16 custom icon label enabled
 
 kRandomLabel = [prefs boolForKey:@"key15"];
- //key15
+ //key15 random icon label colors enabled
 
 kHideBadges =  [prefs boolForKey:@"key4"];
  //key4
@@ -1153,7 +1156,7 @@ kRandomLS =  [prefs boolForKey:@"key13"];
  //key13
 
 kBlackLS = [prefs boolForKey:@"key14"];
- //key14
+ //key14= custom color for LS
 
 kHidePageDots =  [prefs boolForKey:@"key9"];
  //key9
@@ -1192,35 +1195,3 @@ kOpenFolderColorEnabled = [prefs boolForKey:@"openFolderColorEnabled"];
                                     CFNotificationSuspensionBehaviorDeliverImmediately);
     loadPrefs();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**
-%hook CCUIControlCenterButton
--(unsigned long long) roundCorners {
-if(GetPrefBool(@"isSquareCC")) {
-kCCCornerRadius= 0;
-return kCCCornerRadius;
-%orig;
-}
-else if(GetPrefBool(@"isCircularCC")) {
-kCCCornerRadius= 35;
-return kCCCornerRadius;
-%orig;
-}
-else {
-return %orig; }
-}
-%end
-**/
