@@ -15,20 +15,7 @@ return [UIColor colorWithRed: (r/255.0) green: (g/255.0) blue: (b/255.0) alpha:1
 @end
 
 @implementation HBCBRootListController
-/** Was trying to change to appearance settings imstead of HBListController overrides but had errors..
 
-- (instancetype)init {
-    self = [super init];
-
-    if (self) {
-        HBAppearanceSettings *appearanceSettings = [[HBAppearanceSettings alloc] init];
-        appearanceSettings.tintColor = [UIColor myRedRand];
-        appearanceSettings.tableViewCellSeparatorColor = [UIColor colorWithWhite:0 alpha:0.2];
-        self.hb_appearanceSettings = appearanceSettings;
-    }
-
-    return self;
-}
 
 - (id)specifiers {
     if(_specifiers == nil) {
@@ -36,8 +23,8 @@ return [UIColor colorWithRed: (r/255.0) green: (g/255.0) blue: (b/255.0) alpha:1
     }
     return _specifiers;
 }
-**/
-/**
+
+
 -(void)viewWillAppear:(BOOL)animated
 {
 
@@ -47,14 +34,7 @@ return [UIColor colorWithRed: (r/255.0) green: (g/255.0) blue: (b/255.0) alpha:1
 	[super viewWillAppear:animated];
 
 }
-**/
-/*
--(void)viewDidAppear:(BOOL)animated
-{
 
-	[super viewDidAppear:animated];
-}
-*/
 
 
 
