@@ -2,10 +2,6 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #include <CSColorPicker/CSColorPicker.h>
-<<<<<<< master
-
-=======
->>>>>>> origin/master
 
 #define PLIST_PATH                                                                                                                  \
 @"/var/mobile/Library/Preferences/com.i0stweak3r.stylish11.plist"
@@ -1257,23 +1253,18 @@ kWantsClearHighlights =  [prefs boolForKey:@"wantsClearHighlights"];
  //was key1
 
 kBlackText = [prefs boolForKey:@"key2"];
-<<<<<<< master
  //key2 custom UILabel color
-=======
- //key2= Custom Text Color not black anymore
->>>>>>> origin/master
+
 
 kRandomText = [prefs boolForKey:@"key22"];
  //key22
 
 kBlackLabel = [prefs boolForKey:@"key16"];
-<<<<<<< master
  //key16 custom icon label enabled
-=======
- //key16 changed to custom UIcolor
+
 
 kCustomUILabelColor= [[prefs objectForKey:@"customUILabelColor"] stringValue];
->>>>>>> origin/master
+
 
 kRandomLabel = [prefs boolForKey:@"key15"];
  //key15 random icon label colors enabled
@@ -1285,13 +1276,11 @@ kRandomLS =  [prefs boolForKey:@"key13"];
  //key13
 
 kBlackLS = [prefs boolForKey:@"key14"];
-<<<<<<< master
+
  //key14= custom color for LS
-=======
- //key14= custom color for LS 
 
 kLockscreenHex = [[prefs objectForKey:@"LSColorHex"] stringValue];
->>>>>>> origin/master
+
 
 kHidePageDots =  [prefs boolForKey:@"key9"];
  //key9
